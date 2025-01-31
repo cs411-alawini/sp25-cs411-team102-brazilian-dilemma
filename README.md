@@ -1,1 +1,1 @@
-# sp25-cs411-team102-brazilian-dilemma
+# team102-brazilian-dilemma
