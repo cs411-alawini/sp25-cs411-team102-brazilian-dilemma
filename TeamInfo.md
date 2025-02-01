@@ -10,6 +10,10 @@
 | Captain     |  ashwinj3@illinois.edu |
 | Member1     |        Rafael Wersom   |
 | Member1     |   rwers2@illinois.edu  |
+| Member2     |        Jiaxi Huang     |
+| Member2     |   jiaxih4@illinois.edu |
+| Member3     |        Chris Huang     |
+| Member3     |   zexih2@illinois.edu  |
 
 ## Project Information
 
