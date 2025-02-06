@@ -12,6 +12,8 @@
 | Member1     |   rwers2@illinois.edu  |
 | Member 2    |     Arshiya Gupta      |
 | Member 2    | arshiya5@illinois.edu  |
+| Member 3    |       Jiaxi Hunag      |
+| Member 3    |  jiaxih4@illinois.edu  |
 
 ## Project Information
 
