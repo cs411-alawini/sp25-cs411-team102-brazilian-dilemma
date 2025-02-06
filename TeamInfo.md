@@ -10,6 +10,8 @@
 | Captain     |  ashwinj3@illinois.edu |
 | Member1     |        Rafael Wersom   |
 | Member1     |   rwers2@illinois.edu  |
+| Member 2    |     Arshiya Gupta      |
+| Member 2    | arshiya5@illinois.edu  |
 
 ## Project Information
 
