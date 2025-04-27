@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f5f9ff;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #357ab7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flight Management</h1>
+
+  <!-- Search Flights -->
+  <form action="/search-flights" method="GET">
+    <input type="text" name="search" placeholder="Search for flights...">
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Fetch Flights -->
+  <form action="/fetch-flights" method="POST">
+    <button type="submit">Fetch Flights</button>
+  </form>
+
+  <!-- Log In / Sign Up -->
+  <form action="/login" method="GET">
+    <button type="submit">Log In</button>
+  </form>
+
+  <form action="/sign-up" method="GET">
+	  <button type="submit">Sign Up</button>
+</form>
+
+  <!-- Update Flight Reservation -->
+  <form action="/update-reservation" method="POST">
+    <button type="submit">Update Reservation</button>
+  </form>
+
+  <!-- Delete Flight Reservation -->
+  <form action="/delete-reservation" method="POST">
+    <button type="submit">Delete Reservation</button>
+  </form>
+</body>
+</html>
+
