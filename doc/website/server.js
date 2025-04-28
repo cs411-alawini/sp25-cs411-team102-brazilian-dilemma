@@ -158,6 +158,38 @@ app.post('/fetch-flights', function(req, res) {
   });
 });
 
+app.post('/search-flight', (req, res) => {
+  const flightNumber = req.body.flightNumber;
+
+  if (!flight) {
+    return res.status(400).send("Flight number is required");
+  }
+
+  const sql = "SELECT * FROM Flight WHERE FlightNumber = ?";
+
+  const formattedSql = connection.format(sql, [flightNumber]);
+
+  
+  console.log('Formatted SQL:', formattedSql);
+
+  // Execute the query
+  connection.query(formattedSql, (err, results) => {
+    if (err) {
+      console.log("Database error: ", err);
+      return res.status(500).send("Server error");
+    }
+
+    // Check if any results were returned
+    if (results.length > 0) {
+      // If reservations exist for the provided email
+      res.send(results); // Send the results back (could be in JSON format)
+    } else {
+      // If no results were found for the email
+      res.send('There were no results for this flight. Make sure the format is in e.g. AA 2014 format');
+    }
+  });
+});
+
 app.listen(80, function () {
 	console.log('Node app is running on port 80');
 });
