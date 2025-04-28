@@ -46,11 +46,16 @@
     }
   </style>
 </head>
+
+<script>
+  const email = "<%= email %>";
+</script>
+
 <body>
   <h1>Flight Management</h1>
 
   <!-- Search Flights -->
-  <form action="/search-flights" method="POST">
+  <form action="/search-flight" method="POST">
 
     <input type="text" name="flightNumber" placeholder="Search for flights...">
     <button type="submit">Search</button>
@@ -73,6 +78,27 @@
   <!-- Delete Flight Reservation -->
   <form action="/delete-reservation" method="GET">
     <button type="submit">Delete Reservation</button>
+  </form>
+
+<form action="/cancel-flight" method="POST">
+	<input type="text" name="airline" id="airline" placeholder="Enter airline here">
+	  <input type="text" name="flightNumber" id="flightNumber" placeholder="Enter flight number here">
+  <% if (email === 'admin') { %>
+    <button type="submit">Cancel Flight</button>
+  <% } else { %>
+    <button type="button" disabled style="background-color: gray; cursor: not-allowed;">Cancel Flight (Admin Only)</button>
+  <% } %>
+</form>
+
+
+  <form action="/airport-busyness" method="POST">
+	  <input type="text" name="airport" id="airport" placeholder="Enter airport code: e.g. LAX">
+    <button type="submit">Get Airport Busyness</button>
+  </form>
+
+  <form id="airlineForm" action="/submit-airline" method="POST">
+    <input type="text" name="airline" placeholder="Enter airline name" required />
+    <button type="submit">Submit</button>
   </form>
 </body>
 </html>
