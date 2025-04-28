@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Status for <%= airline %></title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1>Flight Status for <%= airline %></h1>
+  <div id="chart"></div>
+
+  <script>
+    // Injected chart data directly
+    const fig = <%- chartData %>;
+
+    Plotly.newPlot('chart', fig.data, fig.layout);
+  </script>
+</body>
+</html>
