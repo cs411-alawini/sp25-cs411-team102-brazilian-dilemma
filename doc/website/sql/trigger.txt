@@ -1,0 +1,10 @@
+DROP TRIGGER IF EXISTS sync_email_update;
+
+    CREATE TRIGGER sync_email_update
+    AFTER UPDATE ON Passenger
+    FOR EACH ROW
+    BEGIN
+      UPDATE Booking
+      SET Email = NEW.Email
+      WHERE Email = OLD.Email;
+    END;
