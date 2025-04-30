@@ -1,0 +1,19 @@
+SELECT S.FlightStatus
+FROM Status S
+JOIN Flight F ON F.FlightNumber = S.FlightNumber
+WHERE (F.AirlineName, F.FlightNumber) IN (
+    SELECT AirlineName, FlightNumber
+    FROM Flight
+    WHERE AirlineName = :airline AND FlightNumber = :flight
+)
+    UPDATE Status
+    SET FlightStatus = 'CANCELLED'
+    WHERE FlightNumber = ?
+
+    UPDATE Booking
+    SET Status = 'CANCELLED'
+    WHERE FlightNumber = ?
+
+    SELECT COUNT(DISTINCT PassengerID) AS num_passengers
+    FROM Booking
+    WHERE FlightNumber = ?

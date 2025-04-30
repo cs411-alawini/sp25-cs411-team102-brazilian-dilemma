@@ -1,0 +1,38 @@
+```
+DELIMITER //
+
+CREATE PROCEDURE GetAirportBusyness(IN p_airport_name VARCHAR(255))
+BEGIN
+    DECLARE total_flights INT;
+    DECLARE delayed_flights INT;
+    DECLARE canceled_fights INT;
+    DECLARE busy_index FLOAT;
+
+    SELECT COUNT(*) INTO total_flights
+    FROM Flight F
+    WHERE F.AirportName = p_airport_name;
+
+    SELECT COUNT(*) INTO delayed_flights
+    FROM Status S
+    JOIN Flight F ON F.FlightNumber = S.FlightNumber
+    WHERE F.AirportName = p_airport_name AND S.FlightStatus = 'Delayed';
+
+    SELECT COUNT(*) INTO canceled_flights
+    FROM Status S
+    JOIN Flight F ON F.FlightNumber = S.FlightNumber
+    WHERE F.AirportName = p_airport_name AND S.FlightStatus = 'Cancelled';
+
+    SET busy_index = (total_flights * 1.0) + (delayed_flights * 1.5) + (canceled_flights * 2.0);
+    SET busy_index = busy_index / total_flights;
+    IF total_flights = 0 THEN
+        SET busy_index = 0;
+    END IF;
+    SELECT p_airport_name AS Airport, 
+           total_flights AS 'Total Flights', 
+           delayed_flights AS 'Delayed Flights', 
+           canceled_flights AS 'Cancelled Flights', 
+           busy_index AS 'Busyness Index';
+
+END //
+
+DELIMITER ;
